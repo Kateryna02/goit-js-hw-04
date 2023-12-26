@@ -1,16 +1,45 @@
-function filterArray(numbers, value) {
-    const resultArray = [];
-    for (let i = 0; i < numbers.length; i++) {
 
-        if (numbers[i] > value) {
-            resultArray.push(numbers[i]);
-        }
+// const profile = {
+//     username: "Jacob",
+//     playTime: 300,
+//     changeUsername: function(newName) {
+//         this.username = newName;
+//     },
+//     changeUsername: function(hours) {
+//         this.playTime = hours;
+//     },
+//     getInfo: function() {
+//         return `${this.username} has ${this.playTime} active hours!`;
+//     }
+
+// };
+
+// console.log(profile.getInfo()); // "Jacob has 300 active hours!"
+
+// profile.changeUsername("Marco");
+// console.log(profile.getInfo()); // "Marco has 300 active hours!"
+
+// profile.updatePlayTime(20);
+// console.log(profile.getInfo()); // "Marco has 320 active hours!"
+
+const profile = {
+    username: "Jacob",
+    playTime: 300,
+    changeUsername(newName) {
+        this.username = newName;
+    },
+    updatePlayTime(hours) {
+        this.playTime += hours;
+    },
+    getInfo() {
+        return `${this.username} has ${this.playTime} active hours!`;
     }
-    return resultArray;
-}
+};
 
-console.log(filterArray([1, 2, 3, 4, 5], 3)); 
-console.log(filterArray([1, 2, 3, 4, 5], 4)); 
-console.log(filterArray([1, 2, 3, 4, 5], 5)); 
-console.log(filterArray([12, 24, 8, 41, 76], 38)); 
-console.log(filterArray([12, 24, 8, 41, 76], 20)); 
+console.log(profile.getInfo()); // "Jacob has 300 active hours!"
+
+profile.changeUsername("Marco");
+console.log(profile.getInfo()); // "Marco has 300 active hours!"
+
+profile.updatePlayTime(20);
+console.log(profile.getInfo()); // "Marco has 320 active hours!"
